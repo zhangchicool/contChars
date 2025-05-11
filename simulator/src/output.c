@@ -20,7 +20,7 @@ void writeMrBayesCmd(FILE* fp, pPhyTree tree, double missing) {
         else
             fprintf(fp, "  format datatype=standard gap=- missing=?;\n");
 
-        fprintf(fp, "matrix\n");
+        fprintf(fp, "  matrix\n");
         if (tree->ncont > 0) {
             for (i = 0; i < tree->ntips; i++) {
                 fprintf(fp, "  %s\t", tree->tips[i]->name);
@@ -80,7 +80,7 @@ void writeMrBayesCmd(FILE* fp, pPhyTree tree, double missing) {
             fprintf(fp, "  %s\t?\n", tree->tips[i]->name);
         }
     }
-    fprintf(fp, ";\nEnd;\n\n");
+    fprintf(fp, "  ;\nEnd;\n\n");
     
     fprintf(fp, "Begin trees;\n");
     fprintf(fp, "  tree mytree=[&R]");

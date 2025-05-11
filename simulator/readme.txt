@@ -11,10 +11,10 @@ Options
     each with n characters; 1 for only discrete (binary) ones and 2 for
     only continuous ones.
 -p  Number of character partitions. The discrete and continuous data are
-    two separate partitions, and each partition can be further subdivided.
+    two separate partitions, and each partition can be further subdivided
+    when p>1.
 -m  Percentage (0≤%≤1) of missing states for fossils. Extant taxa have
-    less missing states (TODO: check).
-
+    less missing states (m/5).
 -b  Brownian motion variance (sigma^2) for continuous characters (default
     1.0). The continuous characters are assumed independent for now (TODO).
 -c  Base clock rate for discrete characters (default 1.0).
