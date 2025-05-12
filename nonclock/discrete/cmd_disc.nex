@@ -1,0 +1,14 @@
+Begin MrBayes;
+  execute data.nex;
+
+  lset coding=variable;
+
+  mcmcp nchain=1 ngen=5000000 samplefr=200 printfr=50000 diagnfr=500000;
+
+  [propset parsSPR$prob=0;]
+  [propset parsTBR$prob=0;]
+
+  mcmc;
+  sumt;
+  sump;
+End;

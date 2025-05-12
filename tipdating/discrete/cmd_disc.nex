@@ -1,0 +1,19 @@
+Begin MrBayes;
+  execute data.nex;
+
+  lset coding=variable;
+
+  prset nodeagepr=calibrated;
+  prset brlenspr=clock:fossilization;
+  prset speciationpr=exp(1);
+  prset extinctionpr=beta(1,1);
+  prset fossilizationpr=beta(1,1);
+  prset sampleprob=1.0;
+  prset treeagepr=gamma(1,1);
+  prset clockratepr=exp(1);
+  prset clockvarpr =iln;
+
+  mcmc nchain=1 ngen=5000000 samplefr=200 printfr=50000 diagnfr=500000;
+  sumt;
+  sump;
+End;
