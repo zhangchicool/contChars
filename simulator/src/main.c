@@ -10,8 +10,8 @@ void helpMsg(void);
 int main (int argc, char *argv[]) {
     FILE   *input =NULL, *output =NULL;
     pPhyTree tTree;
-    int    dType, nCont, nDisc, nPart, pMiss = 0.0;
-    double bmSg2, cRate, rrVar;
+    int    dType, nCont, nDisc, nPart;
+    double bmSg2, cRate, rrVar, pMiss = 0.0;
     int    corr = NO, cSize = 1;
     double alphaD = -1.;  // negative value for equal frequencies
     double alphaG = 1.0;  // gamma shape for generating GTR rates
