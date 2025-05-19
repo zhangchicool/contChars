@@ -144,10 +144,54 @@ void simDiscChar(pTreeNode p, double base, int pos,
         simDiscChar(p->rlink, base, pos, pi, Q);
 }
 
+void simDiscTrPb(pTreeNode p, double base, int pos, int k, double *pi) {
+    /* simulate characters at pos(ition) */
+    int i, astate;
+    double u, x, dist, beta, trProb[k];
+
+    if (p->alink == NULL) {
+        // initialize character at the root
+        u = rndu();
+        for (x = pi[0], i = 0; u > x; i++)
+            x += pi[i+1];
+        p->char_d[pos] = i;
+    }
+    else {
+        // evolve from ancestral node to current node
+        astate = p->alink->char_d[pos];
+        dist = p->brl * base * p->rate_d[pos];
+        
+        beta = 0.0;
+        for (i = 0; i < k; i++)
+            beta += pi[i] * pi[i];
+        beta = 1.0 / (1 - beta);
+
+        // calculate transition probs based on ancestral state and distance
+        for (i = 0; i < k; i++) {
+            if (astate == i)  // no change
+                trProb[i] = exp(-beta * dist) + pi[i] * (1 - exp(-beta * dist));
+            else
+                trProb[i] = pi[i] * (1 - exp(-beta * dist));  // change
+        }
+        
+        // simulate the end state
+        u = rndu();
+        for (x = trProb[0], i = 0; u > x; i++)
+            x += trProb[i+1];
+        p->char_d[pos] = i;
+    }
+    
+    if (p->llink != NULL)
+        simDiscTrPb(p->llink, base, pos, k, pi);
+    
+    if (p->rlink != NULL)
+        simDiscTrPb(p->rlink, base, pos, k, pi);
+}
+
 void simulateDisc(pPhyTree tree, int len, int size, double aD, double aG) {
     /* simulate discrete characters (binary for now) given the tree;
        use GTR-like model for each group of correlated characters */
-    int i, j, l;
+    int i, j, l, useTrProb=1;
     double sum, pi[8]={0}, e[12]={0}, Q[8][8]={{0}};
     
     if (len <= 0) return;
@@ -337,7 +381,10 @@ void simulateDisc(pPhyTree tree, int len, int size, double aD, double aG) {
             
             // keep only variable characters at the tips
             do {
-                simDiscChar(tree->root, tree->rbase, l, pi, Q);
+                if (useTrProb)
+                    simDiscTrPb(tree->root, tree->rbase, l, 2, pi);
+                else
+                    simDiscChar(tree->root, tree->rbase, l, pi, Q);
             }
             while (isConstChar(tree->tips, tree->ntips, l));
         }
