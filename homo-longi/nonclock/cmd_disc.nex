@@ -1,0 +1,23 @@
+Begin MrBayes;
+	set autoclose=yes nowarnings=yes;
+
+	exe ../data_disc.nex;
+
+	[partitions]
+	charset discrete = 1-234;
+	charset continuous = 235-634;
+	partition two = 2: discrete, continuous;
+	set partition = two;
+
+	[substitution model]
+	ctype ordered: 5 7 9 17 20 22 23 25 30 46 47 60 63 65 66 68 70 72 74-76 83 89 97-99
+		103 119 125 126 127 206 210-214 216 217 221 222 223 227 230 231 234 235-634;
+	prset applyto=(all) ratepr=variable;
+
+	mcmcp nrun=4 ngen=20000000 samplefr=500 printfr=10000 diagnfr=50000;
+	mcmcp filename=data_disc;
+
+	mcmc;
+	sumt;
+	sump;
+End;
