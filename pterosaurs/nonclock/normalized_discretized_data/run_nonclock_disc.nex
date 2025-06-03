@@ -1,0 +1,22 @@
+Begin MrBayes;
+	set autoclose=yes nowarnings=yes;
+
+	exe pterosaurs_data_normalized_discretized_mixed.nex;
+
+	[partitions]
+	charset continuous = 1-52;
+    charset discrete = 53-275;
+	partition two = 2: continuous, discrete;
+	set partition = two;
+
+	[substitution model]
+	ctype ordered: 1-52 53 56 66 67 82 86 88 100 104 112 113 121 125 141 142 161
+	163 170 177 178 180 183 186 187 188 198 211 218 247 255 270 272 274 275; 
+	prset applyto=(all) ratepr=variable;
+
+	mcmcp nrun=4 nchains=4 ngen=20000000 samplefr=500 printfr=10000 diagnfr=50000;
+
+	mcmc;
+	sumt;
+	sump;
+End;
