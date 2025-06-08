@@ -1,7 +1,7 @@
 Begin MrBayes;
 	set autoclose=yes nowarnings=yes;
 
-	exe pterosaurs_data_standardized_discretized_mixed.nex;
+	exe pterosaurs_data_discretized_mixed.nex;
 
 	[partitions]
 	charset continuous = 1-52;
