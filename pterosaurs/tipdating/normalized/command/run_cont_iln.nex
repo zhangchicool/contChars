@@ -1,0 +1,155 @@
+Begin MrBayes;
+	set autoclose=yes nowarnings=yes;
+
+	exe ../filtered_continuous_data_normalized_mixed.nex;
+
+	[partitions]
+	charset continuous = 1-52;
+    charset discrete = 53-275;
+	partition two = 2: continuous, discrete;
+	set partition = two;
+
+	[substitution model]
+	ctype ordered: 53 56 66 67 82 86 88 100 104 112 113 121 125 141 142 161
+	163 170 177 178 180 183 186 187 188 198 211 218 247 255 270 272 274 275;
+	prset applyto=(all) ratepr=variable;
+
+	[relaxed clock model]
+	prset clockratepr=exp(1);
+	prset clockvarpr=iln;
+	[unlink ilnvar=(all);]
+
+	[fossil ages]
+	calibrate
+	Euparkeria_capensis = uniform(180.7, 175.464)
+	Herrerasaurus_ischigualastensis = uniform(167.6, 161.3)
+	Scleromochlus_taylori = uniform(171.0, 139.7)
+	Preondactylus_buffarinii = uniform(149.38, 145.18)
+	Austriadactylus_cristatus = uniform(145.18, 139.7)
+	Raeticodactylus_filisurensis = uniform(145.18, 135.4)
+	Eudimorphodon_rosenfeldi = uniform(149.38, 145.18)
+	Eudimorphodon_ranzii = uniform(149.38, 139.7)
+	Dimorphodon_macronyx = uniform(135.4, 133.5)
+	Campylognathoides_zitteli = uniform(118.2, 116.9)
+	Campylognathoides_liasicus = uniform(118.2, 116.9)
+	Scaphognathus_crassirostris = uniform(83.2, 79.06)
+	Orientognathus_chaoyangensis = uniform(77.1, 71.05)
+	Dorygnathus_banthensis = uniform(118.2, 116.9)
+	Fenghuangopterus_lii = uniform(102.2, 86.21)
+	Rhamphorhynchus_muensteri = uniform(86.21, 79.06)
+	Qinglongopterus_guoi = uniform(102.2, 86.21)
+	Sordes_pilosus = uniform(95.5, 88.8)
+	Pterorhynchus_wellnhoferi = uniform(99.3, 95.5)
+	Kunpengopterus_sinensis = uniform(102.2, 86.21)
+	Wukongopterus_lii = uniform(102.2, 86.21)
+	Darwinopterus_linglongtaensis = uniform(102.2, 86.21)
+	Darwinopterus_robustodens = uniform(102.2, 86.21)
+	Darwinopterus_modularis = uniform(102.2, 86.21)
+	Dendrorhynchoides_curvidentatus = uniform(59.77, 53.57)
+	Luopterus_mutoudengensis = uniform(102.2, 86.21)
+	Batrachognathus_volans = uniform(95.5, 88.8)
+	Jeholopterus_ningchengensis = uniform(99.3, 95.5)
+	Anurognathus_ammoni = uniform(83.2, 79.06)
+	Painten_pterodactyloid = uniform(86.21, 83.2)
+	Germanodactylus_rhamphastinus = uniform(83.2, 79.06)
+	Germanodactylus_cristatus = uniform(83.2, 79.06)
+	Pterodactylus_antiquus = uniform(83.2, 79.06)
+	Cycnorhamphus_suevicus = uniform(86.21, 79.06)
+	Pterodactylus_micronyx = uniform(83.2, 79.06)
+	Ctenochasma_elegans = uniform(83.2, 79.06)
+	Pterodaustro_guinazui = uniform(55.4, 34.5)
+	Gegepterus_changi = uniform(59.77, 53.57)
+	Elanodactylus_prolatus = uniform(59.77, 53.57)
+	Ardeadactylus_longicollum = uniform(86.21, 79.06)
+	Huanhepterus_quingyangensis = uniform(71.05, 34.5)
+	Haopterus_gracilis = uniform(59.77, 53.57)
+	Pteranodon_sternbergi = uniform(23.8, 17.6)
+	Pteranodon_longiceps = uniform(19.7, 6.2)
+	Nyctosaurus_gracilis = uniform(19.7, 17.6)
+	Ikrandraco_avatar = uniform(55.4, 47.2)
+	Nurhachius_ignaciobritoi = uniform(55.4, 47.2)
+	Istiodactylus_sinensis = uniform(59.77, 53.57)
+	Istiodactylus_latidens = uniform(59.77, 55.4)
+	Zhenyuanopterus_longirostris = uniform(59.77, 53.57)
+	Boreopterus_cuiae = uniform(59.77, 53.57)
+	Hamipterus_tianshanensis = uniform(71.05, 66.6)
+	Barbosania_gracilirostris = uniform(53.57, 47.2)
+	Anhanguera_robustus = uniform(53.57, 47.2)
+	Anhanguera_piscator = uniform(53.57, 27.9)
+	Tropeognathus_mesembrinus = uniform(53.57, 47.2)
+	Eopteranodon_lii = uniform(59.77, 53.57)
+	Huaxiapterus_jii = uniform(55.4, 47.2)
+	Sinopterus_dongi = uniform(55.4, 47.2)
+	Sinopterus_benxiensis = uniform(55.4, 47.2)
+	Sinopterus_corollatus = uniform(55.4, 47.2)
+	Caiuajara_dobruskii = uniform(55.4, 6.2)
+	Tapejara_wellnhoferi = uniform(53.57, 47.2)
+	Noripterus_complicidens = uniform(71.5, 55.4)
+	Noripterus_parvus = uniform(71.05, 55.4)
+	Dsungaripterus_weii = uniform(71.5, 55.4)
+	Tupuxuara_leonardii = uniform(53.57, 47.2)
+	Eoazhdarcho_liaoxiensis = uniform(55.4, 47.2)
+	Shenzhoupterus_chaoyangensis = uniform(55.4, 47.2)
+	Jidapterus_edentus = uniform(55.4, 47.2)
+	Chaoyangopterus_zhangi = uniform(55.4, 47.2)
+	Zhejiangopterus_linhaiensis = uniform(17.6, 6.2)
+	Quetzalcoatlus_lawsoni = uniform(6.2, 0.0)
+	Eudimorphodon_cromptonellus = uniform(161.3, 139.7)
+	Parapsicephalus_purdoni = uniform(118.2, 116.9)
+	Dimorphodon_hanseni = uniform(149.38, 139.7)
+	Dimorphodon_weintraubi = uniform(126.9, 118.2)
+	Nesodactylus_hesperius = uniform(91.9, 88.8)
+	Cacibupteryx_caribensis = uniform(95.5, 88.8)
+	Angustinaripterus_longicephalus = uniform(104.9, 88.8)
+	Sericipterus_wucaiwanensis = uniform(95.5, 88.8)
+	Darwinopterus_zhengi = uniform(102.2, 86.21)
+	Archaeoistiodactylus_linglongtaensis = uniform(102.2, 86.21)
+	Changchengopterus_pani = uniform(102.2, 86.21)
+	Cuspicephalus_scarfi = uniform(88.8, 86.21)
+	Aurorazhdarcho_primordius = uniform(83.2, 79.06)
+	Liaodactylus_primus = uniform(95.5, 88.8)
+	Beipiaopterus_chenianus = uniform(59.77, 53.57)
+	Moganopterus_zhuiana = uniform(59.77, 53.57)
+	Feilongus_youngi = uniform(55.4, 53.57)
+	Gnathosaurus_subulatus = uniform(83.2, 79.06)
+	Muzquizopteryx_coahuilensis = uniform(27.9, 19.7)
+	Hongshanopterus_lacustris = uniform(55.4, 47.2)
+	Lonchodraco_giganteus = uniform(34.5, 23.8)
+	Boreopterus_giganticus = uniform(59.77, 53.57)
+	Cearadactylus_atrox = uniform(53.57, 47.2)
+	Guidraco_venator = uniform(55.4, 47.2)
+	Ludodactylus_sibbicki = uniform(53.57, 47.2)
+	Liaoningopterus_gui = uniform(55.4, 47.2)
+	Anhanguera_blittersdorffi = uniform(53.57, 47.2)
+	Bakonydraco_galaczi = uniform(19.7, 17.6)
+	Keresdrakon_vilsoni = uniform(55.4, 6.2)
+	Tupandactylus_navigans = uniform(53.57, 47.2)
+	Tupandactylus_imperator = uniform(53.57, 47.2)
+	Europejara_olcadesorum = uniform(59.77, 55.4)
+	Tupuxuara_longicristatus = uniform(53.57, 47.2)
+	Thalassodromeus_sethi = uniform(53.57, 47.2)
+	Montanazhdarcho_minor = uniform(17.6, 6.2)
+	Azhdarcho_lancicollis = uniform(27.9, 23.8)
+	Mistralazhdarcho_maggii = uniform(17.6, 6.2)
+	Wellnhopterus_brevirostris = uniform(6.2, 0.0)
+	;
+	prset nodeagepr=calibrated;
+	
+	[fossilized birth-death tree prior]
+	prset brlenspr=clock:fossilization;
+	prset speciationpr=exp(10);
+	prset extinctionpr=beta(1,1);
+	prset fossilizationpr=beta(1,1);
+	prset treeagepr = uniform(176,186);
+
+	[constraints]
+	constraint ingroup = 4-.;
+	prset topologypr=constraints(ingroup);
+
+	mcmcp nrun=4 ngen=100000000 samplefreq=1000 printfreq=20000 diagnfr=100000;
+	mcmcp
+
+	mcmc;
+	sumt;
+	sump;
+End;
