@@ -1,27 +1,5 @@
-Begin MrBayes;
-	set autoclose=yes nowarnings=yes;
-
-	exe ../filtered_continuous_data_normalized_mixed.nex;
-
-	[partitions]
-	charset continuous = 1-52;
-    charset discrete = 53-275;
-	partition two = 2: continuous, discrete;
-	set partition = two;
-
-	[substitution model]
-	ctype ordered: 53 56 66 67 82 86 88 100 104 112 113 121 125 141 142 161
-	163 170 177 178 180 183 186 187 188 198 211 218 247 255 270 272 274 275;
-	prset applyto=(all) ratepr=variable;
-
-	[relaxed clock model]
-	prset clockratepr=exp(1);
-	prset clockvarpr=wn;
-	[unlink wnvar=(all);]
-
-	[fossil ages]
 	calibrate
-	Euparkeria_capensis = uniform(180.7, 175.464)
+	Euparkeria_capensis = uniform(175.464, 180.7)
 	Herrerasaurus_ischigualastensis = uniform(167.6, 161.3)
 	Scleromochlus_taylori = uniform(171.0, 139.7)
 	Preondactylus_buffarinii = uniform(149.38, 145.18)
@@ -93,7 +71,6 @@ Begin MrBayes;
 	Jidapterus_edentus = uniform(55.4, 47.2)
 	Chaoyangopterus_zhangi = uniform(55.4, 47.2)
 	Zhejiangopterus_linhaiensis = uniform(17.6, 6.2)
-	Quetzalcoatlus_lawsoni = uniform(6.2, 0.0)
 	Eudimorphodon_cromptonellus = uniform(161.3, 139.7)
 	Parapsicephalus_purdoni = uniform(118.2, 116.9)
 	Dimorphodon_hanseni = uniform(149.38, 139.7)
@@ -130,26 +107,7 @@ Begin MrBayes;
 	Thalassodromeus_sethi = uniform(53.57, 47.2)
 	Montanazhdarcho_minor = uniform(17.6, 6.2)
 	Azhdarcho_lancicollis = uniform(27.9, 23.8)
-	Mistralazhdarcho_maggii = uniform(17.6, 6.2)
-	Wellnhopterus_brevirostris = uniform(6.2, 0.0)
+	Mistralazhdarcho_maggii = uniform(6.2, 17.6)
+	[ Wellnhopterus_brevirostris = uniform(0.0, 6.2) ]
+	[ Quetzalcoatlus_lawsoni = uniform(0.0, 6.2) ]
 	;
-	prset nodeagepr=calibrated;
-	
-	[fossilized birth-death tree prior]
-	prset brlenspr=clock:fossilization;
-	prset speciationpr=exp(10);
-	prset extinctionpr=beta(1,1);
-	prset fossilizationpr=beta(1,1);
-	prset treeagepr = uniform(176,186);
-
-	[constraints]
-	constraint ingroup = 4-.;
-	prset topologypr=constraints(ingroup);
-
-	mcmcp nrun=4 ngen=100000000 samplefreq=1000 printfreq=20000 diagnfr=100000;
-	mcmcp
-
-	mcmc;
-	sumt;
-	sump;
-End;

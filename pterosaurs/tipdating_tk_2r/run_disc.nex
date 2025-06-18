@@ -1,0 +1,44 @@
+Begin MrBayes;
+	set autoclose=yes nowarnings=yes;
+
+	exe ../data_disc.nex;
+
+	[partitions]
+	charset continuous = 1-52;
+	charset discrete = 53-275;
+	partition two = 2: continuous, discrete;
+	set partition = two;
+
+	[substitution model]
+	ctype ordered: 1-52 53 56 66 67 82 86 88 100 104 112 113 121 125 141 142 161
+	  163 170 177 178 180 183 186 187 188 198 211 218 247 255 270 272 274 275;
+	prset applyto=(all) ratepr=variable;
+
+	[relaxed clock model]
+	prset clockratepr=exp(100);
+	prset clockvarpr=tk;
+	unlink tk02nvar=(all);
+
+	[fossil ages]
+	exe ../dates_shift.nex;
+	prset nodeagepr=calibrated;
+	
+	[fossilized birth-death tree prior]
+	prset brlenspr=clock:fossilization;
+	prset speciationpr=exp(100);
+	prset extinctionpr=beta(1,1);
+	prset fossilizationpr=beta(1,1);
+	prset sampleprob=0.1;
+	prset treeagepr=offsetexp(176,186);
+
+	[constraints]
+	constraint ingroup = 4-.;
+	prset topologypr=constraints(ingroup);
+
+	mcmcp nrun=4 ngen=80000000 samplefr=1000 printfr=20000 diagnfr=100000;
+	mcmcp filename=data_disc;
+
+	mcmc;
+	sumt;
+	sump;
+End;

@@ -1,7 +1,7 @@
 Begin MrBayes;
 	set autoclose=yes nowarnings=yes;
 
-	exe ../data_both_log_std.nex;
+	exe data_both_log_std.nex;
 
 	[partitions]
 	charset continuous = 1-52;
@@ -17,10 +17,8 @@ Begin MrBayes;
 
 	outgroup Euparkeria_capensis;
 
-	mcmcp nrun=4 nchains=4 ngen=50000000 samplefr=1000 printfr=10000 diagnfr=50000;
-	mcmcp filename=data_both;
+	mcmc nrun=4 nchains=4 ngen=50000000 samplefr=1000 printfr=20000 diagnfr=100000;
 
-	mcmc;
 	sumt;
 	sump;
 End;
