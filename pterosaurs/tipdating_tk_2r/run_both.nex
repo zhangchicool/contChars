@@ -17,7 +17,7 @@ Begin MrBayes;
 	[relaxed clock model]
 	prset clockratepr=exp(100);
 	prset clockvarpr=tk;
-	unlink tk02nvar=(all);
+	unlink tk02var=(all);
 
 	[fossil ages]
 	exe ../dates_shift.nex;
