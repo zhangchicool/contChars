@@ -36,7 +36,7 @@ Begin MrBayes;
 	prset topologypr=constraints(ingroup);
 
 	mcmcp nrun=4 ngen=80000000 samplefr=1000 printfr=20000 diagnfr=100000;
-	mcmcp filename=data_disc;
+	mcmcp filename=data_disc temp=0.05;
 
 	mcmc;
 	sumt;
