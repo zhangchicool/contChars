@@ -1,7 +1,7 @@
 Begin MrBayes;
-  execute data_disc.nex;
+  execute data_cont.nex;
 
-  lset coding=variable;
+  lset nst=2; [unnormalized data]
 
   mcmcp nchain=1 ngen=1000000 samplefr=200 printfr=10000 diagnfr=50000;
 

@@ -167,12 +167,6 @@
       Initial log likelihoods and log prior probs for run 2:
          Chain 1 -- -7709.516039 -- 30.381003
 
-      Overwriting file "data_both.nex.mcmc"
-      Overwriting file "data_both.nex.run1.p"
-      Overwriting file "data_both.nex.run1.t"
-      Overwriting file "data_both.nex.run2.p"
-      Overwriting file "data_both.nex.run2.t"
-
       Using a relative burnin of 25.0 % for diagnostics
 
       Chain results (1000000 generations requested):
@@ -377,11 +371,6 @@
 
       Read a total of 10002 trees in 2 files (sampling 7502 of them)
          (Each file contained 5001 trees of which 3751 were sampled)
-      Overwriting file "data_both.nex.parts"
-      Overwriting file "data_both.nex.tstat"
-      Overwriting file "data_both.nex.vstat"
-      Overwriting file "data_both.nex.con.tre"
-      Overwriting file "data_both.nex.trprobs"
                                                                                    
       General explanation:                                                          
                                                                                    
@@ -616,7 +605,6 @@
       ^                                                            ^
       250000                                                       1000000
 
-      Overwriting file "data_both.nex.lstat"
 
       Estimated marginal likelihoods for runs sampled in files
          "data_both.nex.run1.p" and "data_both.nex.run2.p":
@@ -638,7 +626,6 @@
          Summaries are based on a total of 7502 samples from 2 runs.
          Each run produced 5001 samples of which 3751 samples were included.
          Parameter summaries saved to file "data_both.nex.pstat".
-      Overwriting file "data_both.nex.pstat"
 
                                             95% HPD Interval
                                           --------------------
