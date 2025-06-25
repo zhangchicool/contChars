@@ -1,0 +1,25 @@
+Begin MrBayes;
+	set autoclose=yes nowarnings=yes;
+
+	exe ../data_both_lognorm.nex;
+
+	[partitions]
+	charset continuous = 1-52;
+	charset discrete = 53-275;
+	partition two = 2: continuous, discrete;
+	set partition = two;
+
+	[substitution model]
+	ctype ordered: 53 56 66 67 82 86 88 100 104 112 113 121 125 141 142 161
+	  163 170 177 178 180 183 186 187 188 198 211 218 247 255 270 272 274 275;
+	prset applyto=(all) ratepr=variable;
+
+	outgroup Euparkeria_capensis;
+
+	mcmcp nrun=4 ngen=40000000 samplefr=1000 printfr=20000 diagnfr=100000;
+	mcmcp filename=data_both_lognorm;
+
+	mcmc;
+	sumt;
+	sump;
+End;
