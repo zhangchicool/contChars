@@ -1,0 +1,44 @@
+contData <- readContinuousCharacterData("data_both_cont.nex")
+discData <- readDiscreteCharacterData("data_both_disc.nex")
+
+taxa <- contData.taxa()
+ntaxa <- taxa.size()
+n_cont_chars <- contData.nchar()
+n_disc_chars <- discData.nchar()
+
+moves    = VectorMoves()
+monitors = VectorMonitors()
+
+phylogeny ~ dnUniformTopologyBranchLength(taxa, branchLengthDistribution=dnExponential(10.0))
+
+moves.append( mvNNI(phylogeny, weight=60) )
+moves.append( mvBranchLengthScale(phylogeny, delta=2.0, weight=150) )
+
+TL := phylogeny.treeLength()
+
+rate_cont ~ dnExponential(1.0)
+moves.append( mvScale(rate_cont, weight=10) )
+
+phyContinuous ~ dnPhyloBrownianREML(tree=phylogeny, branchRates=rate_cont, nSites=n_cont_chars)
+phyContinuous.clamp(contData)
+
+rate_disc := 1.0
+Q_disc := fnJC(2)
+
+phyDiscrete ~ dnPhyloCTMC(tree=phylogeny, Q=Q_disc, branchRates=rate_disc, type="Standard")
+phyDiscrete.clamp(discData)
+
+
+mymodel = model(phylogeny, rate_cont)
+
+monitors.append( mnScreen(printgen=200, TL, rate_cont) )
+monitors.append( mnFile(filename="data_both.trees", printgen=10, phylogeny) )
+
+mymcmc = mcmc(mymodel, moves, monitors)
+mymcmc.run(generations=50000)
+
+mymcmc.operatorSummary()
+trace = readTreeTrace("data_both.trees", treetype="non-clock")
+trace.setBurnin(0.25)
+consensusTree(trace, file="data_both.majrule.tre")
+

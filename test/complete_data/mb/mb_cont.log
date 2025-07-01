@@ -1,0 +1,614 @@
+
+
+                            MrBayes 3.2.8 x86_64
+
+                      (Bayesian Analysis of Phylogeny)
+
+              Distributed under the GNU General Public License
+
+
+               Type "help" or "help <command>" for information
+                     on the commands that are available.
+
+                   Type "about" for authorship and general
+                       information about the program.
+
+
+
+   Executing file "mb_cont.nex"
+   UNIX line termination
+   Longest line length = 72
+   Parsing file
+   Reading mrbayes block
+
+      Executing file "data_cont.nex"...
+
+   UNIX line termination
+   Longest line length = 1607
+   Parsing file
+   Expecting NEXUS formatted file
+   Reading data block
+      Allocated taxon set
+      Allocated matrix
+      Defining new matrix with 10 taxa and 200 characters
+      Data is Continuous
+      Gaps coded as -
+      Missing data coded as ?
+      Taxon  1 -> t10
+      Taxon  2 -> t2
+      Taxon  3 -> t5
+      Taxon  4 -> t1
+      Taxon  5 -> t6
+      Taxon  6 -> t3
+      Taxon  7 -> t9
+      Taxon  8 -> t8
+      Taxon  9 -> t7
+      Taxon 10 -> t4
+      Successfully read matrix
+      Setting default partition (does not divide up characters)
+      Setting model defaults
+      Seed (for generating default start values) = 1751259775
+      Setting output file names to "data_cont.nex.run<i>.<p|t>"
+   Exiting data block
+   Reading trees block
+      Successfully read tree 'mytree'
+   Exiting trees block
+   Reading mrbayes block
+      Setting age of taxon 't10' to Fixed(0.55)
+      Setting age of taxon 't2' to Fixed(0.41)
+      Setting age of taxon 't5' to Fixed(0.08)
+      Setting age of taxon 't1' to Fixed(0.31)
+      Setting age of taxon 't3' to Fixed(0.04)
+      Setting age of taxon 't9' to Fixed(0.10)
+      Setting age of taxon 't8' to Fixed(0.33)
+      Setting age of taxon 't4' to Fixed(0.55)
+   Exiting mrbayes block
+   Reached end of file
+
+   Returning execution to calling file ...
+
+      Characters are standardized
+      Successfully set likelihood model parameters
+      Setting number of chains to 1
+      Setting number of generations to 1000000
+      Setting sample frequency to 200
+      Setting print frequency to 10000
+      Setting diagnosing frequency to 50000
+      Successfully set chain parameters
+      Successfully set proposal parameters
+      Successfully set proposal parameters
+      Running Markov chain
+      MCMC stamp = 0258330386
+      Seed = 1003313132
+      Swapseed = 1751259775
+      Model settings:
+
+         Data not partitioned --
+            Datatype  = Continuous
+                        Characters are standardized (mean 0 stdev 1)
+            Model     = Independent Brownian motion
+            Rates     = Equal
+
+      Active parameters: 
+
+         Parameters
+         ---------------------
+         Ratemultiplier      1
+         Topology            2
+         Brlens              3
+         ---------------------
+
+         1 --  Parameter  = Ratemultiplier
+               Type       = Partition-specific rate multiplier
+               Prior      = Fixed(1.0)
+
+         2 --  Parameter  = Tau
+               Type       = Topology
+               Prior      = All topologies equally probable a priori
+               Subparam.  = V
+
+         3 --  Parameter  = V
+               Type       = Branch lengths
+               Prior      = Unconstrained:GammaDir(1.0,0.1000,1.0,1.0)
+
+
+
+      The MCMC sampler will use the following moves:
+         With prob.  Chain will use move
+           11.63 %   ExtSPR(Tau,V)
+           11.63 %   ExtTBR(Tau,V)
+            6.98 %   NNI(Tau,V)
+           46.51 %   Multiplier(V)
+           16.28 %   Nodeslider(V)
+            6.98 %   TLMultiplier(V)
+
+      Division 1 has 200 unique site patterns
+      Using standard non-SSE likelihood calculator for division 1 (single-precision)
+
+      Initial log likelihoods and log prior probs for run 1:
+         Chain 1 -- -12372.376576 -- 31.074150
+
+      Initial log likelihoods and log prior probs for run 2:
+         Chain 1 -- -14545.557940 -- 31.074150
+
+
+      Using a relative burnin of 25.0 % for diagnostics
+
+      Chain results (1000000 generations requested):
+
+          0 -- -12372.377 * -14545.558 
+      10000 -- -1328.271 * -1319.905 -- 0:01:39
+      20000 -- -1319.128 * -1315.227 -- 0:01:38
+      30000 -- -1317.599 * -1318.662 -- 0:01:04
+      40000 -- -1321.455 * -1317.840 -- 0:01:12
+      50000 -- -1315.880 * -1314.865 -- 0:00:57
+
+      Average standard deviation of split frequencies: 0.015713
+
+      60000 -- -1319.932 * -1317.873 -- 0:01:02
+      70000 -- -1319.864 * -1320.404 -- 0:01:06
+      80000 -- -1327.563 * -1319.594 -- 0:00:57
+      90000 -- -1315.691 * -1314.832 -- 0:01:00
+      100000 -- -1322.952 * -1322.875 -- 0:00:54
+
+      Average standard deviation of split frequencies: 0.009215
+
+      110000 -- -1319.911 * -1317.871 -- 0:00:56
+      120000 -- -1314.466 * -1321.324 -- 0:00:58
+      130000 -- -1324.831 * -1318.723 -- 0:00:53
+      140000 -- -1321.189 * -1318.982 -- 0:00:55
+      150000 -- -1323.650 * -1314.837 -- 0:00:51
+
+      Average standard deviation of split frequencies: 0.011158
+
+      160000 -- -1323.590 * -1318.105 -- 0:00:52
+      170000 -- -1325.037 * -1320.195 -- 0:00:53
+      180000 -- -1318.679 * -1318.933 -- 0:00:50
+      190000 -- -1317.354 * -1316.288 -- 0:00:46
+      200000 -- -1320.661 * -1322.439 -- 0:00:48
+
+      Average standard deviation of split frequencies: 0.011487
+
+      210000 -- -1313.967 * -1319.846 -- 0:00:45
+      220000 -- -1321.439 * -1325.175 -- 0:00:42
+      230000 -- -1321.419 * -1319.026 -- 0:00:43
+      240000 -- -1317.192 * -1317.730 -- 0:00:41
+      250000 -- -1318.712 * -1317.567 -- 0:00:42
+
+      Average standard deviation of split frequencies: 0.008660
+
+      260000 -- -1320.491 * -1318.753 -- 0:00:39
+      270000 -- -1316.372 * -1317.206 -- 0:00:37
+      280000 -- -1318.369 * -1314.072 -- 0:00:38
+      290000 -- -1326.060 * -1323.753 -- 0:00:36
+      300000 -- -1319.520 * -1319.364 -- 0:00:35
+
+      Average standard deviation of split frequencies: 0.008666
+
+      310000 -- -1318.332 * -1322.251 -- 0:00:35
+      320000 -- -1319.103 * -1315.408 -- 0:00:34
+      330000 -- -1314.510 * -1315.138 -- 0:00:34
+      340000 -- -1319.600 * -1319.061 -- 0:00:33
+      350000 -- -1317.871 * -1322.494 -- 0:00:31
+
+      Average standard deviation of split frequencies: 0.006834
+
+      360000 -- -1319.390 * -1318.396 -- 0:00:32
+      370000 -- -1320.420 * -1317.548 -- 0:00:30
+      380000 -- -1321.751 * -1317.759 -- 0:00:29
+      390000 -- -1317.966 * -1325.464 -- 0:00:29
+      400000 -- -1319.236 * -1317.752 -- 0:00:28
+
+      Average standard deviation of split frequencies: 0.008244
+
+      410000 -- -1316.308 * -1319.885 -- 0:00:27
+      420000 -- -1322.895 * -1321.233 -- 0:00:27
+      430000 -- -1317.592 * -1324.702 -- 0:00:26
+      440000 -- -1315.617 * -1319.359 -- 0:00:26
+      450000 -- -1318.233 * -1324.814 -- 0:00:25
+
+      Average standard deviation of split frequencies: 0.007745
+
+      460000 -- -1323.075 * -1319.722 -- 0:00:24
+      470000 -- -1320.742 * -1321.406 -- 0:00:24
+      480000 -- -1319.130 * -1320.698 -- 0:00:23
+      490000 -- -1318.217 * -1321.896 -- 0:00:22
+      500000 -- -1319.417 * -1316.974 -- 0:00:23
+
+      Average standard deviation of split frequencies: 0.008330
+
+      510000 -- -1315.964 * -1322.845 -- 0:00:22
+      520000 -- -1323.566 * -1324.113 -- 0:00:21
+      530000 -- -1322.152 * -1315.561 -- 0:00:21
+      540000 -- -1327.167 * -1318.514 -- 0:00:20
+      550000 -- -1316.002 * -1318.320 -- 0:00:19
+
+      Average standard deviation of split frequencies: 0.006612
+
+      560000 -- -1321.194 * -1322.177 -- 0:00:19
+      570000 -- -1322.672 * -1318.976 -- 0:00:18
+      580000 -- -1315.730 * -1315.096 -- 0:00:18
+      590000 -- -1318.344 * -1314.834 -- 0:00:18
+      600000 -- -1317.421 * -1320.541 -- 0:00:17
+
+      Average standard deviation of split frequencies: 0.004618
+
+      610000 -- -1317.894 * -1325.791 -- 0:00:17
+      620000 -- -1322.696 * -1315.684 -- 0:00:16
+      630000 -- -1323.469 * -1315.856 -- 0:00:15
+      640000 -- -1322.524 * -1319.531 -- 0:00:15
+      650000 -- -1317.367 * -1321.549 -- 0:00:15
+
+      Average standard deviation of split frequencies: 0.004842
+
+      660000 -- -1319.592 * -1316.684 -- 0:00:14
+      670000 -- -1316.763 * -1317.007 -- 0:00:14
+      680000 -- -1315.515 * -1319.390 -- 0:00:13
+      690000 -- -1318.727 * -1322.540 -- 0:00:13
+      700000 -- -1315.815 * -1319.190 -- 0:00:12
+
+      Average standard deviation of split frequencies: 0.003824
+
+      710000 -- -1322.847 * -1313.225 -- 0:00:12
+      720000 -- -1318.678 * -1316.843 -- 0:00:12
+      730000 -- -1322.713 * -1320.264 -- 0:00:11
+      740000 -- -1317.708 * -1321.785 -- 0:00:10
+      750000 -- -1317.405 * -1321.587 -- 0:00:10
+
+      Average standard deviation of split frequencies: 0.003367
+
+      760000 -- -1316.818 * -1316.764 -- 0:00:10
+      770000 -- -1322.381 * -1321.523 -- 0:00:09
+      780000 -- -1318.289 * -1316.827 -- 0:00:09
+      790000 -- -1317.799 * -1315.583 -- 0:00:08
+      800000 -- -1317.545 * -1316.854 -- 0:00:08
+
+      Average standard deviation of split frequencies: 0.002545
+
+      810000 -- -1314.516 * -1317.696 -- 0:00:07
+      820000 -- -1325.467 * -1333.875 -- 0:00:07
+      830000 -- -1318.108 * -1318.700 -- 0:00:07
+      840000 -- -1316.513 * -1320.221 -- 0:00:06
+      850000 -- -1321.769 * -1321.248 -- 0:00:06
+
+      Average standard deviation of split frequencies: 0.001818
+
+      860000 -- -1320.826 * -1315.308 -- 0:00:05
+      870000 -- -1318.153 * -1317.957 -- 0:00:05
+      880000 -- -1320.566 * -1319.931 -- 0:00:05
+      890000 -- -1316.424 * -1320.988 -- 0:00:04
+      900000 -- -1321.785 * -1317.369 -- 0:00:04
+
+      Average standard deviation of split frequencies: 0.001382
+
+      910000 -- -1315.583 * -1318.809 -- 0:00:03
+      920000 -- -1321.045 * -1319.961 -- 0:00:03
+      930000 -- -1318.734 * -1322.993 -- 0:00:02
+      940000 -- -1316.239 * -1314.409 -- 0:00:02
+      950000 -- -1318.132 * -1320.710 -- 0:00:02
+
+      Average standard deviation of split frequencies: 0.000992
+
+      960000 -- -1321.444 * -1317.621 -- 0:00:01
+      970000 -- -1320.007 * -1322.651 -- 0:00:01
+      980000 -- -1322.383 * -1315.689 -- 0:00:00
+      990000 -- -1318.261 * -1321.927 -- 0:00:00
+      1000000 -- -1323.467 * -1328.369 -- 0:00:00
+
+      Average standard deviation of split frequencies: 0.001206
+
+      Analysis completed in 41 seconds
+      Analysis used 40.42 seconds of CPU time
+      Likelihood of best state for run 1 was -1311.94
+      Likelihood of best state for run 2 was -1311.80
+      Acceptance rates for the moves in run 1:
+         With prob.   (last 1000)   chain accepted proposals by move
+             7.0 %     (  8 %)     ExtSPR(Tau,V)
+             6.7 %     (  7 %)     ExtTBR(Tau,V)
+            12.4 %     ( 13 %)     NNI(Tau,V)
+            27.2 %     ( 25 %)     Multiplier(V)
+            20.8 %     ( 23 %)     Nodeslider(V)
+            11.0 %     ( 16 %)     TLMultiplier(V)
+      Acceptance rates for the moves in run 2:
+         With prob.   (last 1000)   chain accepted proposals by move
+             7.3 %     (  8 %)     ExtSPR(Tau,V)
+             6.9 %     (  8 %)     ExtTBR(Tau,V)
+            12.4 %     ( 13 %)     NNI(Tau,V)
+            27.2 %     ( 25 %)     Multiplier(V)
+            20.5 %     ( 20 %)     Nodeslider(V)
+            11.0 %     ( 13 %)     TLMultiplier(V)
+      Summarizing trees in files "data_cont.nex.run1.t" and "data_cont.nex.run2.t"
+      Using relative burnin ('relburnin=yes'), discarding the first 25 % of sampled trees
+      Writing statistics to files data_cont.nex.<parts|tstat|vstat|trprobs|con>
+      Examining first file ...
+      Found one tree block in file "data_cont.nex.run1.t" with 5001 trees in last block
+      Expecting the same number of trees in the last tree block of all files
+
+      Tree reading status:
+
+      0      10      20      30      40      50      60      70      80      90     100
+      v-------v-------v-------v-------v-------v-------v-------v-------v-------v-------v
+      *********************************************************************************
+
+      Read a total of 10002 trees in 2 files (sampling 7502 of them)
+         (Each file contained 5001 trees of which 3751 were sampled)
+                                                                                   
+      General explanation:                                                          
+                                                                                   
+      In an unrooted tree, a taxon bipartition (split) is specified by removing a   
+      branch, thereby dividing the species into those to the left and those to the  
+      right of the branch. Here, taxa to one side of the removed branch are denoted 
+      '.' and those to the other side are denoted '*'. Specifically, the '.' symbol 
+      is used for the taxa on the same side as the outgroup.                        
+                                                                                   
+      In a rooted or clock tree, the tree is rooted using the model and not by      
+      reference to an outgroup. Each bipartition therefore corresponds to a clade,  
+      that is, a group that includes all the descendants of a particular branch in  
+      the tree.  Taxa that are included in each clade are denoted using '*', and    
+      taxa that are not included are denoted using the '.' symbol.                  
+                                                                                   
+      The output first includes a key to all the bipartitions with frequency larger 
+      or equal to (Minpartfreq) in at least one run. Minpartfreq is a parameter to  
+      sumt command and currently it is set to 0.10.  This is followed by a table  
+      with statistics for the informative bipartitions (those including at least    
+      two taxa), sorted from highest to lowest probability. For each bipartition,   
+      the table gives the number of times the partition or split was observed in all
+      runs (#obs) and the posterior probability of the bipartition (Probab.), which 
+      is the same as the split frequency. If several runs are summarized, this is   
+      followed by the minimum split frequency (Min(s)), the maximum frequency       
+      (Max(s)), and the standard deviation of frequencies (Stddev(s)) across runs.  
+      The latter value should approach 0 for all bipartitions as MCMC runs converge.
+                                                                                   
+      This is followed by a table summarizing branch lengths, node heights (if a    
+      clock model was used) and relaxed clock parameters (if a relaxed clock model  
+      was used). The mean, variance, and 95 % credible interval are given for each 
+      of these parameters. If several runs are summarized, the potential scale      
+      reduction factor (PSRF) is also given; it should approach 1 as runs converge. 
+      Node heights will take calibration points into account, if such points were   
+      used in the analysis.                                                         
+                                                                                    
+      Note that Stddev may be unreliable if the partition is not present in all     
+      runs (the last column indicates the number of runs that sampled the partition 
+      if more than one run is summarized). The PSRF is not calculated at all if     
+      the partition is not present in all runs.The PSRF is also sensitive to small  
+      sample sizes and it should only be considered a rough guide to convergence    
+      since some of the assumptions allowing one to interpret it as a true potential
+      scale reduction factor are violated in MrBayes.                               
+                                                                                    
+      List of taxa in bipartitions:                                                 
+                                                                                   
+         1 -- t10
+         2 -- t2
+         3 -- t5
+         4 -- t1
+         5 -- t6
+         6 -- t3
+         7 -- t9
+         8 -- t8
+         9 -- t7
+        10 -- t4
+
+      Key to taxon bipartitions (saved to file "data_cont.nex.parts"):
+
+      ID -- Partition
+      ----------------
+       1 -- .*********
+       2 -- .*........
+       3 -- ..*.......
+       4 -- ...*......
+       5 -- ....*.....
+       6 -- .....*....
+       7 -- ......*...
+       8 -- .......*..
+       9 -- ........*.
+      10 -- .........*
+      11 -- ...****...
+      12 -- .......***
+      13 -- ....**....
+      14 -- ....***...
+      15 -- .**.......
+      16 -- .......*.*
+      17 -- ...*******
+      18 -- .**....***
+      19 -- .******...
+      20 -- ........**
+      ----------------
+
+      Summary statistics for informative taxon bipartitions
+         (saved to file "data_cont.nex.tstat"):
+
+      ID   #obs    Probab.     Sd(s)+      Min(s)      Max(s)   Nruns 
+      ----------------------------------------------------------------
+      11  7502    1.000000    0.000000    1.000000    1.000000    2
+      12  7502    1.000000    0.000000    1.000000    1.000000    2
+      13  7502    1.000000    0.000000    1.000000    1.000000    2
+      14  7502    1.000000    0.000000    1.000000    1.000000    2
+      15  7497    0.999334    0.000189    0.999200    0.999467    2
+      16  5967    0.795388    0.002074    0.793922    0.796854    2
+      17  3023    0.402959    0.002828    0.400960    0.404959    2
+      18  2466    0.328712    0.001508    0.327646    0.329779    2
+      19  2013    0.268328    0.004336    0.265263    0.271394    2
+      20  1090    0.145295    0.001131    0.144495    0.146094    2
+      ----------------------------------------------------------------
+      + Convergence diagnostic (standard deviation of split frequencies)
+        should approach 0.0 as runs converge.
+
+
+      Summary statistics for branch and node parameters
+         (saved to file "data_cont.nex.vstat"):
+
+                                              95% HPD Interval
+                                            --------------------
+      Parameter      Mean       Variance     Lower       Upper       Median     PSRF+  Nruns
+      --------------------------------------------------------------------------------------
+      length[1]     0.010006    0.000062    0.000001    0.025520    0.008265    1.000    2
+      length[2]     0.079925    0.000522    0.034200    0.123445    0.079485    1.000    2
+      length[3]     0.397208    0.001929    0.311193    0.479447    0.394942    1.000    2
+      length[4]     0.093375    0.000510    0.053260    0.142366    0.092197    1.000    2
+      length[5]     0.037107    0.000028    0.026524    0.047368    0.036889    1.000    2
+      length[6]     0.006262    0.000014    0.000001    0.013120    0.005824    1.000    2
+      length[7]     0.024677    0.000139    0.001469    0.046432    0.023941    1.000    2
+      length[8]     0.253750    0.001325    0.183752    0.324896    0.253197    1.000    2
+      length[9]     0.390698    0.003899    0.270010    0.510516    0.389090    1.001    2
+      length[10]    0.049123    0.000534    0.004326    0.091428    0.048579    1.000    2
+      length[11]    0.141935    0.000882    0.084265    0.200624    0.141163    1.000    2
+      length[12]    0.872992    0.009950    0.694093    1.077374    0.868227    1.001    2
+      length[13]    0.063115    0.000183    0.035172    0.088079    0.062910    1.000    2
+      length[14]    0.249065    0.001093    0.189149    0.316307    0.247703    1.000    2
+      length[15]    0.106661    0.000735    0.054599    0.161715    0.105790    1.000    2
+      length[16]    0.083581    0.002109    0.001603    0.167026    0.080245    1.002    2
+      length[17]    0.021651    0.000303    0.000006    0.055676    0.017216    1.000    2
+      length[18]    0.018352    0.000252    0.000009    0.049489    0.014305    1.000    2
+      length[19]    0.012616    0.000101    0.000000    0.031719    0.010115    1.003    2
+      length[20]    0.040425    0.000922    0.000044    0.099075    0.033496    1.001    2
+      --------------------------------------------------------------------------------------
+      + Convergence diagnostic (PSRF = Potential Scale Reduction Factor; Gelman
+        and Rubin, 1992) should approach 1.0 as runs converge. NA is reported when
+        deviation of parameter values within all runs is 0 or when a parameter
+        value (a branch length, for instance) is not sampled in all runs.
+
+
+      Summary statistics for partitions with frequency >= 0.10 in at least one run:
+          Average standard deviation of split frequencies = 0.001206
+          Maximum standard deviation of split frequencies = 0.004336
+          Average PSRF for parameter values (excluding NA and >10.0) = 1.000
+          Maximum PSRF for parameter values = 1.003
+
+
+      Clade credibility values:
+
+      /----------------------------------------------------------------------- t10 (1)
+      |                                                                               
+      |                 /----------------------------------------------------- t1 (4)
+      |                 |                                                             
+      |                 |                                  /------------------ t6 (5)
+      |-------100-------+                 /-------100------+                          
+      |                 |                 |                \------------------ t3 (6)
+      |                 \-------100-------+                                           
+      |                                   \----------------------------------- t9 (7)
+      +                                                                               
+      |                                                    /------------------ t8 (8)
+      |                                   /-------80-------+                          
+      |                                   |                \------------------ t4 (10)
+      |----------------100----------------+                                           
+      |                                   \----------------------------------- t7 (9)
+      |                                                                               
+      |                                                    /------------------ t2 (2)
+      \-------------------------100------------------------+                          
+                                                           \------------------ t5 (3)
+                                                                                      
+
+      Phylogram (based on average branch lengths):
+
+      / t10 (1)
+      |                                                                               
+      |       /----- t1 (4)
+      |       |                                                                       
+      |       |                 /-- t6 (5)
+      |-------+             /---+                                                     
+      |       |             |   \ t3 (6)
+      |       \-------------+                                                         
+      |                     \-- t9 (7)
+      +                                                                               
+      |                                                     /--------------- t8 (8)
+      |                                                 /---+                         
+      |                                                 |   \--- t4 (10)
+      |-------------------------------------------------+                             
+      |                                                 \---------------------- t7 (9)
+      |                                                                               
+      |     /----- t2 (2)
+      \-----+                                                                         
+            \----------------------- t5 (3)
+                                                                                      
+      |----------| 0.200 expected changes per site
+
+      Calculating tree probabilities...
+
+      Credible sets of trees (11 trees sampled):
+         50 % credible set contains 2 trees
+         90 % credible set contains 5 trees
+         95 % credible set contains 7 trees
+         99 % credible set contains 9 trees
+
+      Summarizing parameters in files data_cont.nex.run1.p and data_cont.nex.run2.p
+      Writing summary statistics to file data_cont.nex.pstat
+      Using relative burnin ('relburnin=yes'), discarding the first 25 % of samples
+
+      Below are rough plots of the generation (x-axis) versus the log   
+      probability of observing the data (y-axis). You can use these     
+      graphs to determine what the burn in for your analysis should be. 
+      When the log probability starts to plateau you may be at station- 
+      arity. Sample trees and parameters after the log probability      
+      plateaus. Of course, this is not a guarantee that you are at sta- 
+      tionarity. Also examine the convergence diagnostics provided by   
+      the 'sump' and 'sumt' commands for all the parameters in your     
+      model. Remember that the burn in is the number of samples to dis- 
+      card. There are a total of ngen / samplefreq samples taken during 
+      a MCMC analysis.                                                  
+
+      Overlay plot for both runs:
+      (1 = Run number 1; 2 = Run number 2; * = Both runs)
+
+      +------------------------------------------------------------+ -1317.88
+      |        1       2                    1                      |
+      |                                                            |
+      |      1                                             2       |
+      |      2           2       2                          *      |
+      |     2     1           2          2           1           2 |
+      |2              1         1                2        2        |
+      | 2             2        12 1   11   * 112*1 2   2           |
+      |1       2 2            12 1     2          2   1 1 1    1   |
+      |     1       22    1             2   2                  2  1|
+      |  2    2   2*1   2          *2     *   21  1   21     11    |
+      |   2     *        12          12  1               2 1    2  |
+      | 1 1*         1 1   *11    2                     21    2  1 |
+      |  1    1         1   2           1    2     112          1  |
+      |                             12              2        2     |
+      |          1           2                                    2|
+      +------+-----+-----+-----+-----+-----+-----+-----+-----+-----+ -1320.22
+      ^                                                            ^
+      250000                                                       1000000
+
+
+      Estimated marginal likelihoods for runs sampled in files
+         "data_cont.nex.run1.p" and "data_cont.nex.run2.p":
+         (Use the harmonic mean for Bayes factor comparisons of models)
+
+         (Values are saved to the file data_cont.nex.lstat)
+
+      Run   Arithmetic mean   Harmonic mean
+      --------------------------------------
+        1      -1316.68         -1325.86
+        2      -1316.65         -1326.37
+      --------------------------------------
+      TOTAL    -1316.67         -1326.15
+      --------------------------------------
+
+
+      Model parameter summaries over the runs sampled in files
+         "data_cont.nex.run1.p" and "data_cont.nex.run2.p":
+         Summaries are based on a total of 7502 samples from 2 runs.
+         Each run produced 5001 samples of which 3751 samples were included.
+         Parameter summaries saved to file "data_cont.nex.pstat".
+
+                                            95% HPD Interval
+                                          --------------------
+      Parameter      Mean      Variance     Lower       Upper       Median    min ESS*  avg ESS    PSRF+ 
+      --------------------------------------------------------------------------------------------------
+      TL          2.867635    0.016471    2.607879    3.113226    2.863889   2036.25   2059.69    1.000
+      --------------------------------------------------------------------------------------------------
+      * Convergence diagnostic (ESS = Estimated Sample Size); min and avg values
+        correspond to minimal and average ESS among runs. 
+        ESS value below 100 may indicate that the parameter is undersampled. 
+      + Convergence diagnostic (PSRF = Potential Scale Reduction Factor; Gelman
+        and Rubin, 1992) should approach 1.0 as runs converge.
+
+
+   Exiting mrbayes block
+   Reached end of file
+
+   Tasks completed, exiting program because mode is noninteractive
+   To return control to the command line after completion of file processing, 
+   set mode to interactive with 'mb -i <filename>' (i is for interactive)
+   or use 'set mode=interactive'
+

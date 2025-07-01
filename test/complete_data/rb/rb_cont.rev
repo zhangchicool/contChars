@@ -1,0 +1,32 @@
+contData <- readContinuousCharacterData("data_cont.nex")
+taxa <- contData.taxa()
+ntaxa <- taxa.size()
+
+
+moves    = VectorMoves()
+monitors = VectorMonitors()
+
+phylogeny ~ dnUniformTopologyBranchLength(taxa, branchLengthDistribution=dnExponential(10.0))
+
+moves.append( mvNNI(phylogeny, weight=60) )
+moves.append( mvBranchLengthScale(phylogeny, delta=2.0, weight=150) )
+
+TL := phylogeny.treeLength()
+
+clock_cont <- 1
+phyContinuous ~ dnPhyloBrownianREML(tree=phylogeny, branchRates=clock_cont)
+phyContinuous.clamp(contData)
+
+mymodel = model(phylogeny)
+
+monitors.append( mnScreen(printgen=200, TL))
+monitors.append( mnFile(filename="data_cont.trees", printgen=10, phylogeny) )
+
+mymcmc = mcmc(mymodel, moves, monitors)
+mymcmc.run(generations=50000)
+
+mymcmc.operatorSummary()
+trace = readTreeTrace("data_cont.trees", treetype="non-clock")
+trace.setBurnin(0.25)
+consensusTree(trace, file="data_cont.majrule.tre")
+
