@@ -12,9 +12,6 @@ int main (int argc, char *argv[]) {
     pPhyTree tTree;
     int    dType, nCont, nDisc, nPart;
     double bmSg2, cRate, rrVar, pMiss = 0.0;
-    int    corr = NO, cSize = 1;
-    double alphaD = -1.;  // negative value for equal frequencies
-    double alphaG = 1.0;  // gamma shape for generating GTR rates
     int    c;
 
     /* initial values */
@@ -23,7 +20,7 @@ int main (int argc, char *argv[]) {
     
     /* parse arguments */
     // for (int i = 1; i < argc; i++) printf("argv[%u] = %s\n", i, argv[i]);
-    while ((c = getopt(argc, argv, "i:o:n:d:p:m:b:c:v:a:r:q:")) != -1)
+    while ((c = getopt(argc, argv, "i:o:n:d:p:m:b:c:v:")) != -1)
     {
         switch(c) {
             case 'i':  // input
@@ -52,16 +49,6 @@ int main (int argc, char *argv[]) {
                 break;
             case 'v':  // clock variance
                 rrVar = atof(optarg);
-                break;
-            case 'a':  // Dirichlet alpha for state freqs
-                alphaD = atof(optarg);
-                break;
-            case 'r':  // Dirichlet alpha for ex rates in Q
-                corr = YES;
-                alphaG = atof(optarg);
-                break;
-            case 'q':  // correlated group size (2 or 3)
-                cSize = atoi(optarg);
                 break;
         }
     }
@@ -98,7 +85,7 @@ int main (int argc, char *argv[]) {
         simulateCont(tTree, nCont);
 
         /* simulate discrete characters */
-        simulateDisc(tTree, nDisc, cSize, alphaD, alphaG);
+        simulateDisc(tTree, nDisc);
         
         /* write to file */
         writeMrBayesCmd(output, tTree, pMiss);
