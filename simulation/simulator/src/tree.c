@@ -319,15 +319,37 @@ void writeRootedTree(FILE *fp, pTreeNode p) {
 }
 
 void writeUnrootedTree(FILE *fp, pTreeNode p) {
-    pTreeNode q, l, r;
+    pTreeNode l, r;
     
     if (p == NULL) return;
-    q = p->rlink;
-    l = q->llink;
-    r = q->rlink;
-    if (q == NULL || l == NULL || r == NULL) return;
-    
-    fprintf(fp, "(%s:%lf,", p->name, q->brl);
+
+    fprintf(fp, "(");
+    if (p->llink != NULL) {
+        /* p is the root */
+        l = p->llink; r = p->rlink;
+
+        if (l->llink == NULL) {  // l is tip
+            fprintf(fp, "%s", l->name);
+            fprintf(fp, ":%lf,", l->brl + r->brl);
+
+            l = r->llink; r = r->rlink;
+        } else {
+            if (r->llink == NULL)
+                fprintf(fp, "%s", r->name);
+            else
+                writeRootedTree(fp, r);
+            fprintf(fp, ":%lf,", l->brl + r->brl);
+
+            r = l->rlink; l = l->llink;
+        }
+    }
+    else {
+        /* p is the first tip */
+        r = p->rlink;
+        fprintf(fp, "%s:%lf,", p->name, r->brl);
+
+        l = r->llink; r = r->rlink;
+    }
     
     if (l->llink == NULL)
         fprintf(fp, "%s", l->name);

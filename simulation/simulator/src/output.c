@@ -83,8 +83,11 @@ void writeMrBayesCmd(FILE* fp, pPhyTree tree, double missing) {
     fprintf(fp, "  ;\nEnd;\n\n");
     
     fprintf(fp, "Begin trees;\n");
-    fprintf(fp, "  tree mytree=[&R]");
+    fprintf(fp, "  tree myrooted=[&R]");
     writeRootedTree(fp, tree->root);
+    fprintf(fp, ";\n");
+    fprintf(fp, "  tree unrooted=[&U]");
+    writeUnrootedTree(fp, tree->root);
     fprintf(fp, ";\nEnd;\n\n");
     
     fprintf(fp, "Begin MrBayes;\n");

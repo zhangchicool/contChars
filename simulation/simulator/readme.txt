@@ -23,12 +23,3 @@ Options
     distribution with mean 1.0 and variance as the specified value. 
     All characters within a partition share the same rate, while the rates
     are independent (unlinked) among partitions.
-
--a  Parameter (a>0) of symmetric Dirichlet distribution for drawing the
-    state frequencies for each group of characters. If not set or set to a
-    negative value, the character states have equal frequencies.
--r  When used, each group of binary characters are correlated, followed
-    by a parameter (>0) for drawing rates in the Q matrix from a Dirichlet
-    distribution. Default: all characters are independent.
--q  Number of correlated characters in each group. Use with option -r. 
-    Support 2 (default) or 3.
