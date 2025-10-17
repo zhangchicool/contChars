@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "continuous chars" > run.log
+echo "200 continuous chars" > run.log
 
 for i in {1..100}
 do

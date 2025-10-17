@@ -1,0 +1,13 @@
+Begin MrBayes;
+  execute data.nex;
+
+  lset applyto=(1) nst=2;           [uBM]
+  lset applyto=(2) coding=variable; [Mkv]
+  prset applyto=(all) ratepr=variable;
+
+  prset topologypr=fixed(unrooted);
+
+  mcmc nrun=1 nchain=1 ngen=2000000 samplefr=200 printfr=50000;
+  sumt;
+  sump;
+End;

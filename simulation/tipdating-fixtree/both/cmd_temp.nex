@@ -1,0 +1,30 @@
+Begin MrBayes;
+  execute data.nex;
+
+  lset applyto=(1) nst=2;           [uBM]
+  lset applyto=(2) coding=variable; [Mkv]
+  prset applyto=(all) ratepr=variable;
+
+  prset nodeagepr=calibrated;
+  prset brlenspr=clock:fossilization;
+  prset speciationpr=exp(1);
+  prset extinctionpr=beta(1,1);
+  prset fossilizationpr=beta(1,1);
+  prset sampleprob=1.0;
+  prset treeagepr=gamma(1,1);
+  prset clockratepr=exp(1);
+  prset clockvarpr=strict;
+
+  prset topologypr=fixed(myrooted);
+
+  mcmcp nrun=1 nchain=1 ngen=1;
+
+  propset AddBranch$prob=0;
+  propset DelBranch$prob=0;
+  propset NodesliderClock$prob=0;
+  propset TreeStretch$prob=0;
+  startva V=myrooted;
+
+  mcmc;
+  sumt;
+End;

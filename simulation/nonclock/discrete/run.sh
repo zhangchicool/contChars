@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "discrete chars" > run.log
+echo "200 discrete chars" > run.log
 
 for i in {1..100}
 do

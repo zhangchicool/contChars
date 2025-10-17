@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "both continuous and discrete chars" > run.log
+echo "100 continuous and 100 discrete" > run.log
 
 for i in {1..100}
 do
