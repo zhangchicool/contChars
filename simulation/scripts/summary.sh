@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for d in nonclock*/*/
+for d in nonclock/*/
 do  
     echo "working in $d"
     cd $d  
@@ -22,7 +22,7 @@ do
     cd ../..
 done
 
-for d in tipdating*/*/
+for d in tipdating/*/
 do  
     echo "working in $d"
     cd $d  
@@ -38,7 +38,7 @@ do
 
     # tree heights and clock rates
     grep "    age.*\[0\]" run.log > th_estm.txt
-    grep "     clockrate" run.log > cl_base.txt
+    grep "     clockrate" run.log > cl_rate.txt
 
     rm bd.tre
     rm sum_t.r

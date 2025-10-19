@@ -12,7 +12,15 @@ do
   # generate a data file 
   ../../msim -i bd.tre -o data.nex -n 200 -d 2 -m 0.5 >> run.log
   
-  # run mrbayes to infer the parameters
+  # save the true branch lengths
+  ../../mb cmd_temp.nex >> run.log  
+  grep "con_50_majrule" data.nex.con.tre >> true.brl.log
+  
+  # and infer the branch lengths
+  ../../mb cmd_fixt.nex >> run.log  
+  grep "con_50_majrule" data.nex.con.tre >> estm.brl.log
+  
+  # and finally joint inference
   ../../mb cmd_cont.nex >> run.log
   
   # rename files to avoid overwriting

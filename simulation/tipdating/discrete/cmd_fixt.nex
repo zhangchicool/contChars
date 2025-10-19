@@ -22,5 +22,5 @@ Begin MrBayes;
 
   mcmc;
   sumt;
-  sump;
+  [sump;]
 End;

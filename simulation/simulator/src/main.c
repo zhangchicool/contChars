@@ -65,8 +65,7 @@ int main (int argc, char *argv[]) {
     else if (dType == 2)
         nDisc = 0;  // only continuous
 
-    printf("seed: %u\n", z_rndu);
-    // setSeed(-1);
+    setSeed(-1);
 
     while ((c = fgetc(input)) != EOF) {
         if (isspace(c))  continue;

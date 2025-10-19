@@ -1,9 +1,7 @@
 Begin MrBayes;
   execute data.nex;
 
-  lset applyto=(1) nst=2;           [uBM]
-  lset applyto=(2) coding=variable; [Mkv]
-  prset applyto=(all) ratepr=variable;
+  lset nst=2;
 
   prset nodeagepr=calibrated;
   prset brlenspr=clock:fossilization;
@@ -24,5 +22,5 @@ Begin MrBayes;
 
   mcmc;
   sumt;
-  sump;
+  [sump;]
 End;
