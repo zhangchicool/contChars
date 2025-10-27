@@ -1,7 +1,7 @@
 Begin MrBayes;
 	set autoclose=yes nowarnings=yes;
 
-	exe data_both_norm.nex;
+	exe data_norm.nex;
 
 	[partitions]
 	charset continuous = 1-52;

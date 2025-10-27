@@ -1,7 +1,7 @@
 Begin MrBayes;
 	set autoclose=yes nowarnings=yes;
 
-	exe ../data_both_norm.nex;
+	exe ../data_log_nm.nex;
 
 	[partitions]
 	charset continuous = 1-52;
@@ -36,7 +36,7 @@ Begin MrBayes;
 	prset topologypr=constraints(ingroup);
 
 	mcmcp nrun=4 ngen=80000000 samplefr=1000 printfr=20000 diagnfr=100000;
-	mcmcp filename=data_both temp=0.07;
+	mcmcp filename=data_log_nm temp=0.07;
 
 	mcmc;
 	sumt;
