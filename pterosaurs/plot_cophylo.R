@@ -3,8 +3,8 @@ library(phytools)
 
 setwd("~/Documents/Research/2025-ContChars/pterosaurs")
 
-# most parsimonious tree from Andres 2021 (TODO)
-tree_mp <- read.nexus("andres21.mp.tre")
+# most parsimonious tree from TNT (Andres 2021)
+tree_mp <- read.tree("andres21.mp.tre")
 
 # continuous and discrete, linked ILN clock
 tree_c_iln <- read.nexus("tipdating_iln/data_norm.con.tre")
@@ -19,7 +19,7 @@ tree_c_il2 <- read.nexus("tipdating_iln_2r/data_norm.con.tre")
 tree_d_il2 <- read.nexus("tipdating_iln_2r/data_disc.con.tre")
 
 # plot tanglegrams
-plot(cophylo(tree_c_iln, tree_mp), fsize = 0.5)
+plot(cophylo(tree_c_iln, tree_mp, rotate.multi = T), fsize = 0.5)
 
 
 # plot treespaces

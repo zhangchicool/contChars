@@ -19,7 +19,7 @@ tree_c_wn2 <- read.nexus("tipdating_wn_2r/data_both.con.tre")
 tree_d_wn2 <- read.nexus("tipdating_wn_2r/data_disc.con.tre")
 
 # plot tanglegrams
-plot(cophylo(tree_c_wn2, tree_ni21), fsize = 0.6)
+plot(cophylo(tree_c_wn2, tree_ni21, rotate.multi = T), fsize = 0.6)
 
 
 # plot treespaces
